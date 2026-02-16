@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 
 s3_client = boto3.client('s3')
 
-ALLOWED_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/gif']
+ALLOWED_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/heic', 'image/heif']
 PHOTO_BUCKET_NAME = os.environ.get('PHOTO_BUCKET_NAME', 'photo-gallery-photos')
 
 def lambda_handler(event, context):
@@ -73,7 +73,7 @@ def lambda_handler(event, context):
                     'Access-Control-Allow-Origin': '*'
                 },
                 'body': json.dumps({
-                    'error': 'Invalid file type. Only JPEG, PNG, and GIF images are allowed.'
+                    'error': 'Invalid file type. Only JPEG, PNG, GIF, and HEIC images are allowed.'
                 })
             }
         
