@@ -1,7 +1,7 @@
 // Photo Gallery Frontend Logic
 
 // Configuration - UPDATE THIS WITH YOUR API GATEWAY URL AFTER DEPLOYMENT
-const API_BASE_URL = 'https://3x0p7itxec.execute-api.us-east-1.amazonaws.com/prod'; // e.g., 'https://abc123.execute-api.us-east-1.amazonaws.com/prod'
+const API_BASE_URL = 'https://njoff2es13.execute-api.us-east-1.amazonaws.com/prod';
 
 // State
 let allPhotos = [];
