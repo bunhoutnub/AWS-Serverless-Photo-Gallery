@@ -6,7 +6,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
 
 ## Tasks
 
-- [ ] 1. Set up project structure and configuration files
+- [x] 1. Set up project structure and configuration files
   - Create directory structure for frontend and Lambda functions
   - Create requirements.txt for each Lambda function (Pillow for thumbnail_generator)
   - Create package.json or configuration for frontend dependencies if needed
@@ -14,7 +14,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
   - _Requirements: 10.3_
 
 - [ ] 2. Implement Upload Handler Lambda function
-  - [ ] 2.1 Create upload_handler/lambda_function.py with presigned URL generation
+  - [x] 2.1 Create upload_handler/lambda_function.py with presigned URL generation
     - Implement handler function that accepts filename and contentType
     - Validate content type against allowed image formats (image/jpeg, image/png, image/gif)
     - Generate unique photo ID using UUID
@@ -46,7 +46,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
     - _Requirements: 1.4, 1.6_
 
 - [ ] 3. Implement Thumbnail Generator Lambda function
-  - [ ] 3.1 Create thumbnail_generator/lambda_function.py with image processing
+  - [x] 3.1 Create thumbnail_generator/lambda_function.py with image processing
     - Implement handler function that processes S3 event notifications
     - Extract bucket name and object key from event
     - Download photo from S3 to /tmp directory using boto3
@@ -93,7 +93,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 5. Implement List Photos Lambda function
-  - [ ] 5.1 Create list_photos/lambda_function.py with metadata retrieval
+  - [x] 5.1 Create list_photos/lambda_function.py with metadata retrieval
     - Implement handler function that scans DynamoDB Metadata Table
     - Generate presigned URLs or construct public URLs for photos and thumbnails
     - Format response with all required fields (photoId, filename, uploadDate, thumbnailUrl, photoUrl, tags, dimensions)
@@ -119,7 +119,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
     - _Requirements: 4.2, 4.3_
 
 - [ ] 6. Implement Delete Photo Lambda function
-  - [ ] 6.1 Create delete_photo/lambda_function.py with deletion logic
+  - [x] 6.1 Create delete_photo/lambda_function.py with deletion logic
     - Implement handler function that accepts photoId
     - Query DynamoDB for photo metadata using photoId
     - Extract S3 keys for photo and thumbnail
@@ -152,7 +152,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 8. Implement frontend HTML structure
-  - [ ] 8.1 Create frontend/index.html with gallery interface
+  - [x] 8.1 Create frontend/index.html with gallery interface
     - Create HTML structure with upload form (file input, submit button)
     - Create gallery grid container for displaying thumbnails
     - Create modal/overlay for full-size photo viewing
