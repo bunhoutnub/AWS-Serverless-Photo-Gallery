@@ -12,7 +12,7 @@ AWS-Serverless-Photo-Gallery/
 │   ├── app.js                      # Frontend JavaScript logic
 │   └── styles.css                  # Styling
 │
-├── ⚡ lambda/                       # AWS Lambda functions (backend)
+├── ⚡ backend/                      # Backend Lambda functions
 │   ├── upload_handler/             # Generates presigned URLs for uploads
 │   │   ├── lambda_function.py      # Main code
 │   │   └── function.zip            # Deployment package
@@ -50,7 +50,7 @@ AWS-Serverless-Photo-Gallery/
 - **app.js** - Handles upload, display, delete actions
 - **styles.css** - Makes it look nice
 
-### Lambda Functions (Backend)
+### Backend Functions
 1. **upload_handler** - Creates secure upload URLs
 2. **thumbnail_generator** - Automatically resizes photos (triggered by S3)
 3. **list_photos** - Fetches all photos for the gallery
@@ -73,13 +73,13 @@ AWS-Serverless-Photo-Gallery/
 ## 📝 Quick Reference
 
 ### To modify the website:
-Edit files in `frontend/` then run:
+Edit files in `backend/` then run:
 ```bash
 aws s3 sync frontend/ s3://photo-gallery-frontend-355339423972/
 ```
 
-### To update a Lambda function:
-1. Edit the `lambda_function.py` file
+### To update a backend function:
+1. Edit the `lambda_function.py` file in `backend/{function-name}/`
 2. Zip it: `zip function.zip lambda_function.py`
 3. Update: `aws lambda update-function-code --function-name {name} --zip-file fileb://function.zip`
 

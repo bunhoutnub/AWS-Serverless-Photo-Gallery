@@ -31,9 +31,9 @@ cd frontend/
 aws s3 sync . s3://photo-gallery-frontend-355339423972/
 ```
 
-### Update a Lambda Function
+### Update a Backend Function
 ```bash
-cd lambda/upload_handler/
+cd backend/upload_handler/
 # Edit lambda_function.py
 zip function.zip lambda_function.py
 aws lambda update-function-code \
