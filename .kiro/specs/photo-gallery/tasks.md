@@ -162,7 +162,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
     - _Requirements: 10.2, 10.3_
 
 - [ ] 9. Implement frontend styling
-  - [ ] 9.1 Create frontend/styles.css with responsive design
+  - [x] 9.1 Create frontend/styles.css with responsive design
     - Style upload form with clear visual hierarchy
     - Style gallery grid with responsive layout (CSS Grid or Flexbox)
     - Style thumbnail cards with hover effects
@@ -258,7 +258,7 @@ This implementation plan breaks down the serverless photo gallery into discrete,
     - Upload multiple photos simultaneously and verify all are processed successfully
 
 - [ ] 16. Create infrastructure deployment documentation
-  - [ ] 16.1 Document AWS resource setup in README.md
+  - [x] 16.1 Document AWS resource setup in README.md
     - Document S3 bucket creation (Photo_Bucket, Thumbnail_Bucket, Frontend_Bucket)
     - Document S3 static website hosting configuration
     - Document DynamoDB table creation with schema
