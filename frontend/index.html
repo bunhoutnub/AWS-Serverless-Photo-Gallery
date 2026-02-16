@@ -10,41 +10,12 @@
     <div class="container">
         <header>
             <h1>📸 Photo Gallery</h1>
-            <p>Upload, view, and manage your photos</p>
+            <p>Serverless photo gallery demo - View only mode</p>
         </header>
         
-        <!-- Upload Section -->
-        <section class="upload-section">
-            <h2>Upload Photo</h2>
-            <form id="upload-form">
-                <div class="file-input-wrapper">
-                    <input type="file" id="photo-input" accept="image/jpeg,image/png,image/gif" required>
-                    <label for="photo-input" class="file-label">Choose a photo</label>
-                    <span id="file-name" class="file-name">No file chosen</span>
-                </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
-            <div id="upload-status" class="status-message"></div>
-        </section>
-        
-        <!-- Search/Filter Section -->
-        <section class="filter-section">
-            <h2>Search & Filter</h2>
-            <div class="filter-controls">
-                <div class="filter-group">
-                    <label for="tag-search">Search by tag:</label>
-                    <input type="text" id="tag-search" placeholder="Enter tag...">
-                </div>
-                <div class="filter-group">
-                    <label for="date-start">From date:</label>
-                    <input type="date" id="date-start">
-                </div>
-                <div class="filter-group">
-                    <label for="date-end">To date:</label>
-                    <input type="date" id="date-end">
-                </div>
-                <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
-            </div>
+        <!-- Demo Notice -->
+        <section class="demo-notice" style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #ffc107;">
+            <strong>📌 Portfolio Demo:</strong> This is a read-only demonstration. Upload and delete features are disabled for public viewing.
         </section>
         
         <!-- Gallery Grid -->
@@ -65,7 +36,6 @@
                     <h3 id="modal-filename"></h3>
                     <p id="modal-date"></p>
                     <p id="modal-dimensions"></p>
-                    <button id="modal-delete" class="btn btn-danger">Delete Photo</button>
                 </div>
             </div>
         </div>

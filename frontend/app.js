@@ -202,9 +202,6 @@ function renderGallery() {
                     <button class="btn btn-primary btn-view" data-photo-id="${
                       photo.photoId
                     }">View</button>
-                    <button class="btn btn-danger btn-delete" data-photo-id="${
-                      photo.photoId
-                    }">Delete</button>
                 </div>
             </div>
         </div>
