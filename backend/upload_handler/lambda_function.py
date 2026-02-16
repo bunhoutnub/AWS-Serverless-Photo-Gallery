@@ -90,7 +90,7 @@ def lambda_handler(event, context):
             Fields={'Content-Type': content_type},
             Conditions=[
                 {'Content-Type': content_type},
-                ['content-length-range', 0, 10485760]  # Max 10MB
+                ['content-length-range', 0, 52428800]  # Max 50MB
             ],
             ExpiresIn=300  # 5 minutes
         )
