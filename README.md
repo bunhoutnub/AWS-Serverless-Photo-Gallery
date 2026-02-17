@@ -6,6 +6,8 @@ A fully serverless photo gallery application built with AWS services. Upload, vi
 
 **Website:** http://photo-gallery-frontend-355339423972.s3-website-us-east-1.amazonaws.com
 
+**CloudFront CDN (HTTPS):** https://d1wu6qrhlfijph.cloudfront.net
+
 Try it out! Upload photos and see the serverless architecture in action.
 
 ## Features
@@ -21,28 +23,51 @@ Try it out! Upload photos and see the serverless architecture in action.
 ## Architecture
 
 ```
-User Browser
-    ↓
-S3 Static Website (frontend)
-    ↓
-API Gateway (REST API)
-    ↓
-Lambda Functions (backend)
-    ↓
-S3 (storage) + DynamoDB (metadata)
+┌─────────────┐
+│    User     │
+└──────┬──────┘
+       │ HTTPS
+       ▼
+┌─────────────────┐
+│   CloudFront    │  (CDN + HTTPS)
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────────┐
+│  S3 Website     │  (Frontend: HTML/CSS/JS)
+└──────┬──────────┘
+       │ API Calls
+       ▼
+┌─────────────────┐
+│  API Gateway    │  (REST API)
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────────┐
+│ Lambda Functions│  (Upload, List, Delete, Thumbnail)
+└──────┬──────────┘
+       │
+       ▼
+┌──────────────────────────┐
+│  S3 Buckets + DynamoDB   │  (Storage + Metadata)
+└──────────────────────────┘
 ```
+
+**[View Detailed Architecture Diagram →](docs/ARCHITECTURE.md)**
 
 ## Tech Stack
 
 **Frontend:**
 - HTML5, CSS3, JavaScript
 - Hosted on S3 Static Website
+- CloudFront CDN for HTTPS and global delivery
 
 **Backend:**
 - AWS Lambda (Python 3.11)
 - API Gateway (REST API)
 - S3 (object storage)
 - DynamoDB (NoSQL database)
+- CloudFront (CDN)
 - Pillow (image processing)
 
 ## Project Structure
@@ -81,8 +106,10 @@ AWS-Serverless-Photo-Gallery/
 ## Quick Start
 
 ### View Documentation
+- [Architecture Diagram](docs/ARCHITECTURE.md) - Detailed system architecture
 - [Project Structure](docs/PROJECT_STRUCTURE.md) - Detailed file organization
 - [Quick Start Guide](docs/QUICK_START.md) - Common commands
+- [CloudFront CDN Setup](docs/CLOUDFRONT_SETUP.md) - Add HTTPS and global CDN
 - [Portfolio Tips](docs/PORTFOLIO_TIPS.md) - Interview preparation
 - [Deployment Guide](docs/README_DEPLOYMENT.md) - Full setup instructions
 
@@ -90,6 +117,8 @@ AWS-Serverless-Photo-Gallery/
 ```bash
 cd frontend/
 aws s3 sync . s3://photo-gallery-frontend-355339423972/
+# If using CloudFront, invalidate cache:
+aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
 ```
 
 ### Update Backend Function
@@ -118,15 +147,16 @@ aws lambda update-function-code \
 - **API Gateway:** 1 REST API
 - **DynamoDB:** 1 table
 - **IAM Roles:** 4 (one per Lambda)
+- **CloudFront:** 1 distribution
 
 ## Future Enhancements
 
+- [x] CloudFront CDN integration
 - [ ] User authentication (AWS Cognito)
 - [ ] AI-powered tagging (AWS Rekognition)
 - [ ] Search and filter functionality
 - [ ] Bulk upload support
-- [ ] Custom domain with HTTPS
-- [ ] CloudFront CDN integration
+- [ ] Custom domain name
 
 ## License
 
