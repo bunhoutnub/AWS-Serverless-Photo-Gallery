@@ -216,7 +216,7 @@ echo "--------------------------------------"
 
 # Upload Handler
 echo "Deploying Upload Handler..."
-cd lambda/upload_handler
+cd backend/upload_handler
 zip -q function.zip lambda_function.py
 
 aws lambda create-function \
@@ -237,7 +237,7 @@ echo "✓ Upload Handler deployed"
 
 # Thumbnail Generator
 echo "Deploying Thumbnail Generator..."
-cd lambda/thumbnail_generator
+cd backend/thumbnail_generator
 zip -q function.zip lambda_function.py
 
 aws lambda create-function \
@@ -261,7 +261,7 @@ echo "✓ Thumbnail Generator deployed"
 
 # List Handler
 echo "Deploying List Handler..."
-cd lambda/list_photos
+cd backend/list_photos
 zip -q function.zip lambda_function.py
 
 aws lambda create-function \
@@ -282,7 +282,7 @@ echo "✓ List Handler deployed"
 
 # Delete Handler
 echo "Deploying Delete Handler..."
-cd lambda/delete_photo
+cd backend/delete_photo
 zip -q function.zip lambda_function.py
 
 aws lambda create-function \
@@ -292,6 +292,25 @@ aws lambda create-function \
     --handler lambda_function.lambda_handler \
     --zip-file fileb://function.zip \
     --environment Variables="{METADATA_TABLE_NAME=${METADATA_TABLE},PHOTO_BUCKET_NAME=${PHOTO_BUCKET},THUMBNAIL_BUCKET_NAME=${THUMBNAIL_BUCKET}}" \
+    --region ${AWS_REGION} \
+    2>/dev/null || aws lambda update-function-code \
+    --function-name photo-gallery-delete-handler \
+    --zip-file fileb://function.zip \
+    --region ${AWS_REGION} > /dev/null
+
+cd ../..
+echo "✓ Delete Handler deployed"
+
+echo ""
+echo "========================================="
+echo "Deployment Complete!"
+echo "========================================="
+echo ""
+echo "Next steps:"
+echo "1. Run finish-deployment.sh to configure S3 triggers and API Gateway"
+echo "2. Update frontend/app.js with your API Gateway URL"
+echo "3. Deploy frontend with: aws s3 sync frontend/ s3://${FRONTEND_BUCKET}/"
+echo ""THUMBNAIL_BUCKET}}" \
     --region ${AWS_REGION} \
     2>/dev/null || aws lambda update-function-code \
     --function-name photo-gallery-delete-handler \
