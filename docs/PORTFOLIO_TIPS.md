@@ -1,4 +1,4 @@
-# 💼 Portfolio Tips
+# Portfolio Tips
 
 ## How to Present This Project
 
@@ -35,13 +35,13 @@ AWS Serverless Photo Gallery
 
 ## What This Project Demonstrates
 
-✅ Cloud architecture skills  
-✅ Serverless computing knowledge  
-✅ API design and development  
-✅ Event-driven programming  
-✅ Security best practices  
-✅ Full-stack development  
-✅ Problem-solving abilities  
+- Cloud architecture skills  
+- Serverless computing knowledge  
+- API design and development  
+- Event-driven programming  
+- Security best practices  
+- Full-stack development  
+- Problem-solving abilities  
 
 ## Sample Interview Questions
 
@@ -65,4 +65,4 @@ A: Getting the Pillow library to work in Lambda. I had to build a Lambda layer w
 4. Share on LinkedIn
 5. Add to portfolio website
 
-Good luck! 🚀
+Good luck!

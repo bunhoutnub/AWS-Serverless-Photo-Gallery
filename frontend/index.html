@@ -1,76 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Gallery</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>📸 Photo Gallery</h1>
-            <p>Upload, view, and manage your photos</p>
-        </header>
-        
-        <!-- Upload Section -->
-        <section class="upload-section">
-            <h2>Upload Photo</h2>
-            <form id="upload-form">
-                <div class="file-input-wrapper">
-                    <input type="file" id="photo-input" accept="image/jpeg,image/png,image/gif,image/heic" required>
-                    <label for="photo-input" class="file-label">Choose a photo</label>
-                    <span id="file-name" class="file-name">No file chosen</span>
-                </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
-            <div id="upload-status" class="status-message"></div>
-        </section>
-        
-        <!-- Search/Filter Section -->
-        <section class="filter-section">
-            <h2>Search & Filter</h2>
-            <div class="filter-controls">
-                <div class="filter-group">
-                    <label for="tag-search">Search by tag:</label>
-                    <input type="text" id="tag-search" placeholder="Enter tag...">
-                </div>
-                <div class="filter-group">
-                    <label for="date-start">From date:</label>
-                    <input type="date" id="date-start">
-                </div>
-                <div class="filter-group">
-                    <label for="date-end">To date:</label>
-                    <input type="date" id="date-end">
-                </div>
-                <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
-            </div>
-        </section>
-        
-        <!-- Gallery Grid -->
-        <section class="gallery-section">
-            <h2>Your Photos</h2>
-            <div id="gallery-status" class="status-message"></div>
-            <div id="gallery" class="gallery">
-                <!-- Photos will be dynamically loaded here -->
-            </div>
-        </section>
-        
-        <!-- Full-size Photo Modal -->
-        <div id="photo-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <img id="modal-image" src="" alt="Full size photo">
-                <div class="modal-info">
-                    <h3 id="modal-filename"></h3>
-                    <p id="modal-date"></p>
-                    <p id="modal-dimensions"></p>
-                    <button id="modal-delete" class="btn btn-danger">Delete Photo</button>
-                </div>
-            </div>
+      <header>
+        <h1>Photo Gallery</h1>
+        <p>Upload, view, and manage your photos</p>
+      </header>
+
+      <!-- Upload Section -->
+      <section class="upload-section">
+        <h2>Upload Photo</h2>
+        <form id="upload-form">
+          <div class="file-input-wrapper">
+            <input
+              type="file"
+              id="photo-input"
+              accept="image/jpeg,image/png,image/gif,image/heic"
+              required
+            />
+            <label for="photo-input" class="file-label">Choose a photo</label>
+            <span id="file-name" class="file-name">No file chosen</span>
+          </div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <div id="upload-status" class="status-message"></div>
+      </section>
+
+      <!-- Search/Filter Section -->
+      <section class="filter-section">
+        <h2>Search & Filter</h2>
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="tag-search">Search by tag:</label>
+            <input type="text" id="tag-search" placeholder="Enter tag..." />
+          </div>
+          <div class="filter-group">
+            <label for="date-start">From date:</label>
+            <input type="date" id="date-start" />
+          </div>
+          <div class="filter-group">
+            <label for="date-end">To date:</label>
+            <input type="date" id="date-end" />
+          </div>
+          <button id="clear-filters" class="btn btn-secondary">
+            Clear Filters
+          </button>
         </div>
+      </section>
+
+      <!-- Gallery Grid -->
+      <section class="gallery-section">
+        <h2>Your Photos</h2>
+        <div id="gallery-status" class="status-message"></div>
+        <div id="gallery" class="gallery">
+          <!-- Photos will be dynamically loaded here -->
+        </div>
+      </section>
+
+      <!-- Full-size Photo Modal -->
+      <div id="photo-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img id="modal-image" src="" alt="Full size photo" />
+          <div class="modal-info">
+            <h3 id="modal-filename"></h3>
+            <p id="modal-date"></p>
+            <p id="modal-dimensions"></p>
+            <button id="modal-delete" class="btn btn-danger">
+              Delete Photo
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    
+
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

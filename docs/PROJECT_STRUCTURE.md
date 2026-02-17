@@ -1,18 +1,18 @@
-# 📁 Project Structure
+# Project Structure
 
 ## Overview
 This is a serverless photo gallery application built with AWS services.
 
 ```
 AWS-Serverless-Photo-Gallery/
-├── 📄 README.md                    # Main documentation & setup guide
+├── README.md                    # Main documentation & setup guide
 │
-├── 🌐 frontend/                    # Website files (hosted on S3)
+├── frontend/                    # Website files (hosted on S3)
 │   ├── index.html                  # Main HTML page
 │   ├── app.js                      # Frontend JavaScript logic
 │   └── styles.css                  # Styling
 │
-├── ⚡ backend/                      # Backend Lambda functions
+├── backend/                      # Backend Lambda functions
 │   ├── upload_handler/             # Generates presigned URLs for uploads
 │   │   ├── lambda_function.py      # Main code
 │   │   └── function.zip            # Deployment package
@@ -30,20 +30,20 @@ AWS-Serverless-Photo-Gallery/
 │       ├── lambda_function.py      # Main code
 │       └── function.zip            # Deployment package
 │
-├── 🚀 Deployment Scripts
+├── Deployment Scripts
 │   ├── deploy.sh                   # Full deployment script
 │   ├── deploy-simple.sh            # Simplified deployment
 │   ├── finish-deployment.sh        # Complete remaining setup
 │   └── setup-https.sh              # HTTPS configuration
 │
-└── 📋 .kiro/specs/                 # Project specifications
+└── .kiro/specs/                 # Project specifications
     └── photo-gallery/
         ├── requirements.md         # Feature requirements
         ├── design.md               # Architecture design
         └── tasks.md                # Implementation tasks
 ```
 
-## 🔧 What Each Component Does
+## What Each Component Does
 
 ### Frontend (Website)
 - **index.html** - The webpage users see
@@ -66,11 +66,11 @@ AWS-Serverless-Photo-Gallery/
 - **DynamoDB** - Database storing photo metadata
 - **IAM Roles** - Permissions for Lambda functions
 
-## 🌐 Your Live Application
+## Your Live Application
 **Website:** http://photo-gallery-frontend-355339423972.s3-website-us-east-1.amazonaws.com
 **API:** https://njoff2es13.execute-api.us-east-1.amazonaws.com/prod
 
-## 📝 Quick Reference
+## Quick Reference
 
 ### To modify the website:
 Edit files in `backend/` then run:
