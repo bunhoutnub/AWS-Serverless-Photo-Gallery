@@ -313,12 +313,10 @@ function applyFilters() {
   const dateEnd = document.getElementById("date-end").value;
 
   filteredPhotos = allPhotos.filter((photo) => {
-    // Tag filter
+    // Filename search (instead of tags since we don't have tags)
     if (tagSearch) {
-      const matchesTag = photo.tags.some((tag) =>
-        tag.toLowerCase().includes(tagSearch)
-      );
-      if (!matchesTag) return false;
+      const matchesFilename = photo.filename.toLowerCase().includes(tagSearch);
+      if (!matchesFilename) return false;
     }
 
     // Date filter
