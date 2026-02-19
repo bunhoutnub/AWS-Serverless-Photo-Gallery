@@ -1,6 +1,6 @@
 // Photo Gallery Frontend Logic
 
-// Configuration - UPDATE THIS WITH YOUR API GATEWAY URL AFTER DEPLOYMENT
+// API Gateway UR
 const API_BASE_URL =
   "https://njoff2es13.execute-api.us-east-1.amazonaws.com/prod";
 
@@ -90,8 +90,8 @@ async function uploadPhoto(file) {
     statusDiv.textContent = "Uploading photo...";
     statusDiv.style.display = "block";
 
-    console.log('Requesting upload URL for:', file.name, file.type);
-    
+    console.log("Requesting upload URL for:", file.name, file.type);
+
     // Step 1: Get presigned URL from backend
     const response = await fetch(`${API_BASE_URL}/upload`, {
       method: "POST",
@@ -103,8 +103,8 @@ async function uploadPhoto(file) {
         contentType: file.type,
       }),
     });
-    
-    console.log('Upload URL response status:', response.status);
+
+    console.log("Upload URL response status:", response.status);
 
     if (!response.ok) {
       const error = await response.json();
